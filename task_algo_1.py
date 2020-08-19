@@ -21,7 +21,7 @@ def check_legth_of_number(legth_of_string,checking_number):
     else:
         return False
 
-if legth_of_string <= pow(10,5):
+if legth_of_string <= pow(10,5): #cheking length of string
     #string input
     string = input('Please enter the string of binary number : ')
     try:
@@ -65,14 +65,15 @@ else:
 # AAAA: the degree of symmetry is 2.It can be divided into AA - AA, each AA can be further divided
 # into A-A which cannot be divided any further.
 
-
 input_len = int(input('Enter length  of string : '))
 input_str = input('Enter string of length {} : '.format(input_len))
+#initialize degree of symmetry
 a = 0
 while input_len % 2 == 0:
+    # devide lnput string in half
     first, second = input_str[:len(input_str) // 2], input_str[len(input_str) // 2:]
     if first == second:
-        a += 1
+        a += 1  #if equal then increased by 1
     else:
         break
     input_str = first
@@ -95,6 +96,7 @@ print(a)
 #the above sequence)
 #).Adit is very busy with his intern. He turns to you for help. Please help him.
 
+# initilize final result
 final =  [None] * 6
 a = [10, 8, 7, 16, 9, 43]
 x = int(input('answer of a[{}] * a[{}]] : '.format(1, 4)))
@@ -176,10 +178,14 @@ is_contest = c.split()
 is_eat = s.split()
 new_rating = r
 for i in range(n):
+    #contest happen and he eat
     if is_contest[i] == '1' and is_eat[i] == '1' :
         new_rating += x
+    
+    #contest happen and he not eat
     elif is_contest[i] == '1' and is_eat[i] == '0':
         new_rating -= y
+
 if new_rating < r :
     print('demoted')
 elif new_rating > r :
