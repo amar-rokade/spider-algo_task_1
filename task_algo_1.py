@@ -191,4 +191,4 @@ if new_rating < r :
 elif new_rating > r :
     print('promoted')
 else:
-    print('same as inital')
+    print('no change')
