@@ -23,12 +23,12 @@
 # #input  T
 T = int(input('Enter the number of expression : '))
 # Initialize input array
-if 1 <= T  and T <=500 :
+if 1 <= T  and T <=500 :                                             # we check constraints first
     expression_list = []
     for i in range(1,T+1):
-        exp = list(input('enter expression number {} : '.format(i)))
+        exp = list(input('enter expression number {} : '.format(i)))  # converte input in list
 
-        if 1 <= len(exp) and len(exp) <= pow(10,6):
+        if 1 <= len(exp) and len(exp) <= pow(10,6):                   # check constraints second 
             expression_list.append(exp)
         elif len(exp) == 0:
             print("there's no such a prefix.")
@@ -36,14 +36,14 @@ if 1 <= T  and T <=500 :
             print("expression not valid because it's length more than  10^6!")
     for expression in expression_list :
         a = 0
-        if expression[0] != ">":
-            for i in range(len(expression)-1):
-                if expression[i] == "<" :
+        if expression[0] == "<":                                    # checking first element of expression 
+            for i in range(len(expression)-1):                      
+                if expression[i] == "<" :                           
                     for j in range(i+1,len(expression)):
                         if expression[j] == '>':
-                                a += 2
-                                expression[j] = 0
-                                break
+                                a += 2                              # if we found pair then we incresed by 2
+                                expression[j] = 0                   # we element pair for not take in part for new cheking
+                                break                               # if we found e[J] ==  we break inner loop and checking new 
         print(a)                     
 else :
     print("Please enter number between 1 and 500..")
@@ -54,31 +54,32 @@ else :
 #           TASK 2 B : Max Element in Array (BASIC MODE)
 # ==========================================================
 import array as arr
-import sys
+import sys                                      # we import required module
 initial = []
 n = int(input('Enter number of element in array: '))
 
-if 1 <= n and n <= pow(10,5): 
+if 1 <= n and n <= pow(10,5):                                # constrainats
     for i in range(n):
-        initial.append(i+1)
+        initial.append(i+1)                                  # here we asign value as indices
 
     q = int(input('Enter number of queries to be performed: ')) 
-    if 1<= q and q <= 100 :
+    if 1<= q and q <= 100 :                                 # constrains checking
         query_list = []
 
         for i in range(1,q+1):
-            try :
+            try :                                           # we make sure  query correct or not 
                 query = arr.array('L',map(int,input('enter expression number {} : '.format(i)).split()))
             except:
                 sys.exit('Please make sure you add correct last element queries! try again')
-            if 1 <= query[0] and query[1]<= n and 1 <= query[2] and query[2] <= pow(10,9):
+
+            if 1 <= query[0] and query[1]<= n and 1 <= query[2] and query[2] <= pow(10,9): 
                 query_list.append(query)
             else :
                 sys.exit('Please make sure you add correct queries! try again')
         for query in query_list:
             for j in range(query[0]-1,query[1]):
-                initial[j] = initial[j] + query[2]
-        print(max(initial))
+                initial[j] = initial[j] + query[2]       # add 
+        print(max(initial))                              # we print the max element in array
     else :
         print('Please Enter number of queries between 1 and 100. try again! ')
 else : 
