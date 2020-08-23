@@ -97,7 +97,7 @@ if 1 <= n and n <= pow(10,5):
     for i in range(n):
         initial.append(i+1)
 
-    q = int(float(input('Enter number of queries to be performed: ')))
+    q = int(input('Enter number of queries to be performed: '))
     if 1<= q and q <= pow(10,5) :
         query_list = []
         for i in range(1,q+1):
@@ -110,15 +110,20 @@ if 1 <= n and n <= pow(10,5):
                 query_list.append(query)
             else :
                 sys.exit('Please make sure you add correct queries! try again')
-            
-        for query in query_list:
+        list_update = {}                                   #here we initialize dic for get updated element
+        for query in query_list:  
             for j in range(query[0]-1,query[1]):
-                initial[j] = initial[j] + query[2]
-        print(max(initial))
+                if j  in  list_update.keys() :             # cheking is indices alredy in dic or of 
+                    d = list_update.update({j : list_update.get(j)+query[2]})    # indices present then we add this value by query[2]
+                else :
+                    list_update.update({j:j+query[2]+1})       # we add new key and value to dic
+        
+        for q in list_update.keys():
+            initial[q] = list_update.get(q)                 # here we update value which required to update
+        print(max(initial))                                 # print max element in array
     else :
         print('Please Enter number of queries between 1 and 10^5. try again! ')
 else : 
     print('please  enter number of element less than 10^5!')
-
 
 
