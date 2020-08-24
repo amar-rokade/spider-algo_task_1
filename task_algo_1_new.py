@@ -45,7 +45,7 @@ if legth_of_string <= pow(10,5): #cheking length of string
                 second_b = format(final[1], 'b')
                 print('{} {}'.format(first_b, second_b))
     except:
-        print('Please give proper binary number input which has only 0 and 1 number')
+        print('invalid')
 
 
 
@@ -93,10 +93,10 @@ print(a)
 # initilize final result
 final =  [None] * 6
 a = [10, 8, 7, 16, 9, 43]
-x = int(input('answer of a[{}] * a[{}]] : '.format(1, 4)))
-y = int(input('answer of a[{}] * a[{}]] : '.format(2, 4)))
-z = int(input('answer of a[{}] * a[{}]] : '.format(3, 5)))
-w = int(input('answer of a[{}] * a[{}]] : '.format(1, 3)))
+x = int(input('{} , {}'.format(1, 4)))
+y = int(input('{} , {}'.format(2, 4)))
+z = int(input('{} , {}'.format(3, 5)))
+w = int(input('{} , {}'.format(1, 3)))
 
 for i in range(5):
     for j in range(i+1,6):
